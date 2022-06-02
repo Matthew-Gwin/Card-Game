@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "beTriD+aBuxwpkMZB0ecM/wAcJBKW1T6deVkF2I+LgNlWdwFoeKQz8cvWbtWLhbVdgThLiPkzSdxnbQd8cJIQw==",
+  "dgSpecHash": "g0FLW7H6RajEKN87cUIrnwcZwoSYZpcq1Y60KCVqLsUR06IK/Monww/4UsCSTzsDpNJdptjctURCL6pj4Lj2gg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mg0522\\source\\repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\mg0522\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
