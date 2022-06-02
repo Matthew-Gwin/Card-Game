@@ -8,7 +8,11 @@ namespace Card_Game
         {
 
 
-            Deck d = new Deck(); //creates standard deck of size 52 
+            Deck d = new Deck(true); //creates standard deck of size 52 
+            for (int i = 0; i < d.cards.Count; i++)
+            {
+                Console.WriteLine(d.cards[i]);
+            }
             Card ace_of_spades = new Card('A', "Spades", 11);
             Player matt = new Player("Matt");
             Player yasmeen = new Player("Yasmeen");

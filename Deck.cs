@@ -8,7 +8,7 @@ namespace Card_Game
 {
     class Deck {
 
-        private List<Card> cards { get; set; }
+        public List<Card> cards { get; }
         private int size { get; set; }
 
         public Deck(bool init, bool ace_val = false)
