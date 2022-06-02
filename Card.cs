@@ -16,7 +16,7 @@ namespace Card_Game
             this.suit = suit;
             this.rank = rank;
         }
-        public String toString()
+        public String ToString()
         {
             return this.rank + " of " + this.suit + " " + this.value;
         }
