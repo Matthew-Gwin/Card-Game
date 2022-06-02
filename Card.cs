@@ -6,9 +6,9 @@ namespace Card_Game
 {
     class Card
     {
-        private int value;
-        private string suit;
-        private char rank;
+        private int value { get; set; }
+        private string suit { get; set; }
+        private char rank { get; set; }
 
         public Card(char rank, string suit, int value )
         {

@@ -8,8 +8,8 @@ namespace Card_Game
 {
     class Deck {
 
-        private List<Card> cards;
-        private int size;
+        private List<Card> cards { get; set; }
+        private int size { get; set; }
 
         public Deck() { }
         
