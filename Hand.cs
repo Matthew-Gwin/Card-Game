@@ -6,7 +6,7 @@ namespace Card_Game
 {
     class Hand : Deck // Hand extends Deck
     {
-        private List<Card> hand; //might not need this 
+        //private List<Card> hand; //might not need this 
 
         public Hand(int size) 
         {
