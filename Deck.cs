@@ -16,7 +16,7 @@ namespace Card_Game
         public Deck(int size)
         {
             this.size = size;
-            cards = new List<Card>();
+            this.cards = new List<Card>();
         }
 
         private void Shuffle()
@@ -25,22 +25,22 @@ namespace Card_Game
             int r = rand.Next() % size;
             for (int i = 0; i < 10; i++)
             {
-                Card temp = cards[i];
-                cards[i] = cards[r]; //swap with random card
-                cards[r] = temp;
+                Card temp = this.cards[i];
+                this.cards[i] = this.cards[r]; //swap with random card
+                this.cards[r] = temp;
             }
         }
         private Card Deal()
         {
             int last = cards.Count - 1;
             Card ret = cards[last];
-            cards.RemoveAt(last);
+            this.cards.RemoveAt(last);
             return ret;
 
         }
         public void AddTo(Card c)
         {
-            cards.Add(c);
+            this.cards.Add(c);
         }
 
     }

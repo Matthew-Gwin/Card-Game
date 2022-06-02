@@ -8,14 +8,14 @@ namespace Card_Game
     {
         private int UID { get; set; }
         private bool isPlaying { get; set; }
-        private Hand h { get; set; }
+        private Hand hand { get; set; }
 
         public Player()
         {
             Random rnd = new Random();
-            UID = rnd.Next(0, 9999);
+            this.UID = rnd.Next(0, 9999);
             this.isPlaying = true;
-            h = new Hand();
+            this.hand = new Hand();
         }
     }
 }
