@@ -14,6 +14,7 @@ namespace Card_Game
         {
             Random rnd = new Random();
             UID = rnd.Next(0, 9999);
+            this.isPlaying = true;
         }
     }
 }
