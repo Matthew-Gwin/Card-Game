@@ -20,6 +20,9 @@ namespace Card_Game
         {
             return this.rank + " of " + this.suit + " " + this.value;
         }
+
+
     }
+
 
 }

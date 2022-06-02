@@ -8,7 +8,7 @@ namespace Card_Game
     {
         private List<Card> hand;
 
-        public Hand()
+        public Hand(int size) //need to use super constructor from deck 
         {
             hand = new List<Card>();
         }
