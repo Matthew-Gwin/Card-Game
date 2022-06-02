@@ -8,10 +8,10 @@ namespace Card_Game
     {
         //private List<Card> hand; //might not need this 
 
-        public Hand(int size) 
-        {
-            base(size); //call deck constructor (hand is basically the same thing as a deck)
-        }
+        public Hand() { }
+        
+        public Hand(int size) : base(size) { }        //call deck constructor (hand is basically the same thing as a deck)
+    
 
     }
 }

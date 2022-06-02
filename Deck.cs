@@ -10,12 +10,15 @@ namespace Card_Game
 
         private List<Card> cards;
         int size;
+
+        public Deck() { }
         
         public Deck(int size)
         {
             this.size = size;
-
+            cards = new List<Card>();
         }
+
         private void Shuffle()
         {
             Random rand = new Random();
@@ -37,7 +40,7 @@ namespace Card_Game
         }
         public void AddTo(Card c)
         {
-            hand.Add(c);
+            cards.Add(c);
         }
 
     }

@@ -1,0 +1,14 @@
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.csproj.AssemblyReference.cache
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.AssemblyInfoInputs.cache
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.AssemblyInfo.cs
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.csproj.CoreCompileInputs.cache
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\bin\Debug\netcoreapp3.1\Card_Game.exe
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\bin\Debug\netcoreapp3.1\Card_Game.deps.json
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\bin\Debug\netcoreapp3.1\Card_Game.runtimeconfig.json
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\bin\Debug\netcoreapp3.1\Card_Game.runtimeconfig.dev.json
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\bin\Debug\netcoreapp3.1\Card_Game.dll
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\bin\Debug\netcoreapp3.1\Card_Game.pdb
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.dll
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.pdb
+C:\Users\mg0522\Source\Repos\Matthew-Gwin\Card-Game\obj\Debug\netcoreapp3.1\Card_Game.genruntimeconfig.cache
