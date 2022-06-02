@@ -9,7 +9,7 @@ namespace Card_Game
     class Deck {
 
         public List<Card> cards { get; }
-        private int size { get; set; }
+        private int size { get; }
 
         public Deck(bool init, bool ace_val = false)
         {

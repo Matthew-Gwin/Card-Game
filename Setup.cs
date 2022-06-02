@@ -13,11 +13,11 @@ namespace Card_Game
             {
                 Console.WriteLine(d.cards[i]);
             }
-            Card ace_of_spades = new Card('A', "Spades", 11);
+            //Card ace_of_spades = new Card('A', "Spades", 11);
             Player matt = new Player("Matt");
             Player yasmeen = new Player("Yasmeen");
             Player feiyang = new Player("Feiyang");
-            Console.WriteLine(ace_of_spades);
+           // Console.WriteLine(ace_of_spades);
             Console.WriteLine("Hello World!");
         }
     }
