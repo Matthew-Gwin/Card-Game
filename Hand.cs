@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Card_Game
 {
-    class Hand
+    class Hand : Deck // Hand extends Deck
     {
         private List<Card> hand;
 
@@ -12,9 +12,6 @@ namespace Card_Game
         {
             hand = new List<Card>();
         }
-        public void AddTo(Card c)
-        {
-            hand.Add(c);
-        }
+
     }
 }

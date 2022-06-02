@@ -14,6 +14,7 @@ namespace Card_Game
         public Deck(int size)
         {
             this.size = size;
+
         }
         private void Shuffle()
         {
@@ -34,6 +35,10 @@ namespace Card_Game
             return ret;
 
         }
-        
+        public void AddTo(Card c)
+        {
+            hand.Add(c);
+        }
+
     }
 }
