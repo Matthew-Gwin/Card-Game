@@ -6,11 +6,11 @@ namespace Card_Game
 {
     class Hand : Deck // Hand extends Deck
     {
-        private List<Card> hand;
+        private List<Card> hand; //might not need this 
 
-        public Hand(int size) //need to use super constructor from deck 
+        public Hand(int size) 
         {
-            hand = new List<Card>();
+            base(size); //call deck constructor (hand is basically the same thing as a deck)
         }
 
     }
