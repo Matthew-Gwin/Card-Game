@@ -14,12 +14,12 @@ namespace Card_Game
 
         public void AddPlayer(Player p)
         {
-            
-            int UID = this.generateID()
-            if players.ContainsKey(UID){
-                while (if players.ContainsKey(UID))
+
+            int UID = this.generateID();
+            if (players.ContainsKey(UID)){
+                while (players.ContainsKey(UID))
                 {
-                        UID = this.generateID();
+                    UID = this.generateID();
                 }
             }
             players.Add(UID, p);
