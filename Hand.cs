@@ -7,10 +7,8 @@ namespace Card_Game
     class Hand : Deck // Hand extends Deck
     {
         //private List<Card> hand; //might not need this 
-
-        public Hand() { }
         
-        public Hand(int size) : base(size) { }        //call deck constructor (hand is basically the same thing as a deck)
+        public Hand() : base(false) { }        //call deck constructor (hand is basically the same thing as a deck)
     
 
     }

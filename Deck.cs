@@ -11,13 +11,16 @@ namespace Card_Game
         private List<Card> cards { get; set; }
         private int size { get; set; }
 
-        public Deck() { }
-        
-        public Deck(int size)
+        public Deck(bool init, bool ace_val = false)
         {
-            this.size = size;
             this.cards = new List<Card>();
+            if (init)
+            {
+                this.create(ace_val);
+            }
+            this.size = this.cards.Count;
         }
+        public Deck() { }
 
         private void Shuffle()
         {
@@ -38,6 +41,35 @@ namespace Card_Game
             return ret;
 
         }
+
+        private void create(bool ace) //if ace is true, it gets set to 1
+        {
+            char[] facecards = { 'A', 'J', 'Q', 'K' };
+            String[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
+            Card c = null;
+            int faceCardValue = 10; //default
+            for (int i = 0; i < suits.Length; i++)
+            {
+                for (int j = 2; j <= 10; j++)
+                {
+                    this.AddTo(new Card((char) i, suits[i], j));
+                }
+                for (int k = 0; k < facecards.Length; k++)
+                {
+                    if (facecards[k] == 'A')
+                    {
+                        if (ace) this.AddTo(new Card(facecards[k], suits[i], 1));
+                        else this.AddTo(new Card(facecards[k], suits[i], 11));
+                    }
+                    else
+                    {
+                        this.AddTo(new Card(facecards[k], suits[i], faceCardValue)); //assign facecards with 0 value to start
+                    }
+
+                }
+            }
+        }
+
         public void AddTo(Card c)
         {
             this.cards.Add(c);
