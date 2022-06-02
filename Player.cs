@@ -10,7 +10,6 @@ namespace Card_Game
         private int UID { get; set; }
         private bool isPlaying { get; set; }
         private Hand hand { get; set; }
-
         public Player(string playerName)
         {
 
