@@ -9,7 +9,7 @@ namespace Card_Game
     class Deck {
 
         private List<Card> cards;
-        int size;
+        private int size;
 
         public Deck() { }
         

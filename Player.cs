@@ -6,9 +6,9 @@ namespace Card_Game
 {
     class Player
     {
-        int UID;
-        bool isPlaying;
-        Hand h;
+        private int UID;
+        private bool isPlaying;
+        private Hand h;
 
         public Player()
         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mg0522\\Source\\Repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj": {}
+    "C:\\Users\\mg0522\\source\\repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mg0522\\Source\\Repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj": {
+    "C:\\Users\\mg0522\\source\\repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mg0522\\Source\\Repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj",
+        "projectUniqueName": "C:\\Users\\mg0522\\source\\repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj",
         "projectName": "Card_Game",
-        "projectPath": "C:\\Users\\mg0522\\Source\\Repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj",
+        "projectPath": "C:\\Users\\mg0522\\source\\repos\\Matthew-Gwin\\Card-Game\\Card_Game.csproj",
         "packagesPath": "C:\\Users\\mg0522\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mg0522\\Source\\Repos\\Matthew-Gwin\\Card-Game\\obj\\",
+        "outputPath": "C:\\Users\\mg0522\\source\\repos\\Matthew-Gwin\\Card-Game\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
