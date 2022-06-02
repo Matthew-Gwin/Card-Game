@@ -42,6 +42,7 @@ namespace Card_Game
 
         }
 
+        //Not sure if this belongs here
         private void create(bool ace) //if ace is true, it gets set to 1
         {
             char[] facecards = { 'A', 'J', 'Q', 'K' };
@@ -52,7 +53,7 @@ namespace Card_Game
             {
                 for (int j = 2; j <= 10; j++)
                 {
-                    this.AddTo(new Card((char) i, suits[i], j));
+                    this.AddTo(new Card(Convert.ToChar(Convert.ToString(j)[0]), suits[i], j));
                 }
                 for (int k = 0; k < facecards.Length; k++)
                 {
