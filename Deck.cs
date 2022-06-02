@@ -74,8 +74,9 @@ namespace Card_Game
 
         public void AddTo(Card c)
         {
-            this.size = this.cards.Count;
+
             this.cards.Add(c);
+            this.size = this.cards.Count;
         }
 
     }
