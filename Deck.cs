@@ -9,7 +9,7 @@ namespace Card_Game
     class Deck {
 
         public List<Card> cards { get; }
-        private int size { get; }
+        private int size { get; set;  }
 
         public Deck(bool init, bool ace_val = false)
         {
@@ -38,6 +38,7 @@ namespace Card_Game
             int last = cards.Count - 1;
             Card ret = cards[last];
             this.cards.RemoveAt(last);
+            this.size = this.cards.Count;
             return ret;
 
         }
@@ -73,6 +74,7 @@ namespace Card_Game
 
         public void AddTo(Card c)
         {
+            this.size = this.cards.Count;
             this.cards.Add(c);
         }
 
