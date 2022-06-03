@@ -17,6 +17,10 @@ namespace Card_Game
             Player matt = new Player("Matt");
             Player yasmeen = new Player("Yasmeen");
             Player feiyang = new Player("Feiyang");
+            Game game = new Game();
+            game.AddPlayer(matt);
+            game.AddPlayer(yasmeen);
+            game.AddPlayer(feiyang);   
            // Console.WriteLine(ace_of_spades);
             Console.WriteLine("Hello World!");
         }
