@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Card_Game
 {
@@ -15,8 +17,13 @@ namespace Card_Game
             }
 
             //LINQ
+            Console.WriteLine("Daimond cards exclusively selected with LINQ");
+            IEnumerable<Card> dmds = from c in d.cards where c.ToString().Contains("Diamonds") select c;
 
-            //IEnumerable<Card> dmds = from c in d.cards where c.ToString().Contains("Diamonds");
+            foreach (Card card in dmds)
+            {
+                Console.WriteLine(card);
+            }
 
             //Card ace_of_spades = new Card('A', "Spades", 11);
             Player matt = new Player("Matt");
@@ -27,7 +34,7 @@ namespace Card_Game
             game.AddPlayer(matt);
             game.AddPlayer(yasmeen);
             game.AddPlayer(feiyang);   
-           // Console.WriteLine(ace_of_spades);
+          //Console.WriteLine(ace_of_spades);
             Console.WriteLine("Hello World!");
         }
     }
