@@ -6,10 +6,11 @@ namespace Card_Game
 {
     internal class Game
     {
-        public IDictionary<int,Player> players;
+        public Dictionary<int,Player> players;
 
         public Game()
         {
+            players = new Dictionary<int,Player>();
         }
 
         public void AddPlayer(Player p)
