@@ -17,13 +17,14 @@ namespace Card_Game
             }
 
             //LINQ
+            /*
             Console.WriteLine("Daimond cards exclusively selected with LINQ");
             IEnumerable<Card> dmds = from c in d.cards where c.ToString().Contains("Diamonds") select c;
 
             foreach (Card card in dmds)
             {
                 Console.WriteLine(card);
-            }
+            }*/ 
 
             //Card ace_of_spades = new Card('A', "Spades", 11);
             Player matt = new Player("Matt");
