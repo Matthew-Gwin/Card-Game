@@ -7,12 +7,17 @@ namespace Card_Game
         static void Main(string[] args)
         {
 
-
             Deck d = new Deck(true); //creates standard deck of size 52 
-            for (int i = 0; i < d.cards.Count; i++)
+
+            foreach (Card c in d.cards)
             {
-                Console.WriteLine(d.cards[i]);
+                Console.WriteLine(c);
             }
+
+            //LINQ
+
+            //IEnumerable<Card> dmds = from c in d.cards where c.ToString().Contains("Diamonds");
+
             //Card ace_of_spades = new Card('A', "Spades", 11);
             Player matt = new Player("Matt");
             Player yasmeen = new Player("Yasmeen");

@@ -47,27 +47,31 @@ namespace Card_Game
         private void create(bool ace) //if ace is true, it gets set to 1
         {
             char[] facecards = { 'A', 'J', 'Q', 'K' };
-            String[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
+            string[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
             Card c = null;
             int faceCardValue = 10; //default
-            for (int i = 0; i < suits.Length; i++)
+
+            foreach (string s in suits)
             {
-                for (int j = 2; j <= 10; j++)
+                for (int j = 2; j <= 10; j++) //card and value
                 {
-                    this.AddTo(new Card(Convert.ToChar(Convert.ToString(j)[0]), suits[i], j));
+                    this.AddTo(new Card(Convert.ToChar(Convert.ToString(j)[0]), s, j));
                 }
-                for (int k = 0; k < facecards.Length; k++)
+                //for (int k = 0; k < facecards.Length; k++)
+                foreach (char fc in facecards)
                 {
-                    if (facecards[k] == 'A')
+                    if (fc == 'A')
                     {
-                        if (ace) this.AddTo(new Card(facecards[k], suits[i], 1));
-                        else this.AddTo(new Card(facecards[k], suits[i], 11));
+                        if (ace) this.AddTo(new Card(fc, s, 1));
+                        else this.AddTo(new Card(fc, s, 11));
                     }
-                    else this.AddTo(new Card(facecards[k], suits[i], faceCardValue)); //assign facecards with 0 value to start
-                    
+                    else this.AddTo(new Card(fc, s, faceCardValue)); //assign facecards with 0 value to start
+
 
                 }
             }
+
+
         }
 
         public void AddTo(Card c)
