@@ -63,10 +63,8 @@ namespace Card_Game
                         if (ace) this.AddTo(new Card(facecards[k], suits[i], 1));
                         else this.AddTo(new Card(facecards[k], suits[i], 11));
                     }
-                    else
-                    {
-                        this.AddTo(new Card(facecards[k], suits[i], faceCardValue)); //assign facecards with 0 value to start
-                    }
+                    else this.AddTo(new Card(facecards[k], suits[i], faceCardValue)); //assign facecards with 0 value to start
+                    
 
                 }
             }
