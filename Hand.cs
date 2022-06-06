@@ -20,7 +20,10 @@ namespace Card_Game
             }
             return sum;
         }
-
+        public override String ToString()
+        {
+            return String.Join(", ", base.ToString() + " | Score: " + this.Score());
+        }
 
     }
 }
