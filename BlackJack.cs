@@ -21,7 +21,11 @@ namespace Card_Game
         public void PlayGame()
         {
             //int numDone = 0; 
-            gamecards.Shuffle();
+            for (int i = 0; i < 10; i++)
+            {
+                gamecards.Shuffle();
+            }
+
             //while (numDone < this.players.Count - 1)
             //while (this.players.Count >= 1) 
             while (true) // While there's more players than the dealer
