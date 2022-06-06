@@ -10,7 +10,7 @@ namespace Card_Game
         public string suit { get; set; }
         public String rank { get; set; }
 
-        public Card(String rank, string suit, int value )
+        public Card(string rank, string suit, int value )
         {
             this.value = value;
             this.suit = suit;

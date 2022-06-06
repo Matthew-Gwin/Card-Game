@@ -22,15 +22,6 @@ namespace Card_Game
         }
         public Deck() { this.size = 0; }
 
-        public int Score()
-        {
-            int sum = 0;
-            foreach (Card c in cards)
-            {
-                sum += c.value;
-            }
-            return sum;
-        }
 
         public void Shuffle()
         {
@@ -39,8 +30,8 @@ namespace Card_Game
                 return; //can't shuffle empty Deck
             }
             Random rand = new Random();
-            int r = rand.Next(0, 52);
-            for (int i = 0; i < 10; i++)
+            int r = rand.Next(0, this.cards.Count);
+            for (int i = 0; i < this.cards.Count; i++)
             {
                 Card temp = this.cards[i];
                 this.cards[i] = this.cards[r]; //swap with random card
@@ -61,7 +52,7 @@ namespace Card_Game
         //Not sure if this belongs here
         private void create(bool ace) //if ace is true, it gets set to 1
         {
-            String[] facecards = { "A", "J", "Q", "K" }; 
+            string[] facecards = { "A", "J", "Q", "K" }; 
             string[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
             Card c = null;
             int faceCardValue = 10; //default
@@ -80,7 +71,7 @@ namespace Card_Game
                         if (ace) this.AddTo(new Card(fc, s, 1));
                         else this.AddTo(new Card(fc, s, 11));
                     }
-                    else this.AddTo(new Card(fc, s, faceCardValue)); //assign facecards with 0 value to start
+                    else this.AddTo(new Card(fc, s, faceCardValue)); //assign facecards with 10 value to start
 
 
                 }
@@ -97,7 +88,7 @@ namespace Card_Game
 
         public override string ToString()
         {
-            return String.Join(", ", this.cards) + " Score: " + this.Score();
+            return String.Join(", ", this.cards);
         }
     }
 }

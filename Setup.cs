@@ -33,6 +33,12 @@ namespace Card_Game
             game.AddPlayer(yasmeen);
             game.AddPlayer(feiyang);
 
+            /*Deck test = new Deck(true);
+
+            Console.WriteLine(test);
+            test.Shuffle();
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine(test); */
 
             game.PlayGame();
 

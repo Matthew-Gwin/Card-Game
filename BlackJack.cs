@@ -15,34 +15,76 @@ namespace Card_Game
             Player dealer = new Player("Dealer"); //Blackjack always has a dealer
             this.AddPlayer(dealer);
             gamecards = new Deck(true);
-            Console.WriteLine(gamecards);
+            //Console.WriteLine(gamecards);
         }
 
         public void PlayGame()
         {
+            //int numDone = 0; 
             gamecards.Shuffle();
-            while (this.players.Count > 1) // While there's more players than the dealer
+            //while (numDone < this.players.Count - 1)
+            //while (this.players.Count >= 1) 
+            while (true) // While there's more players than the dealer
             {
+                if (this.players.Count == 1) //only dealer left
+                {
+                    Dealer_Play();
+                    break;
+                }
+                //Console.WriteLine(numDone);
+                
                 foreach (Player p in this.players.Values)
                 {
+                    if (p.hand.cards.Count == 0)
+                    {
+                        for (int dealcount = 1; dealcount <= 2; dealcount++) //deal two cards to each player
+                        {
+                            p.hand.AddTo(gamecards.Deal());
+                        }
+                    }
                     if (p.name == "Dealer")
                     {
                         continue;
                     }
-                    for (int dealcount = 1; dealcount <= 2; dealcount++) //deal two cards to each player
-                    {
-                        p.hand.AddTo(gamecards.Deal());
-                    }
-                    Console.WriteLine("------------------- " + p.name + " -------------------");
-                    Console.WriteLine(p);
-                    bool ask = AskPlayer();
-                    if (ask)
-                    {
-                        p.hand.AddTo(gamecards.Deal());
-                    }
+                    else while (p.isPlaying)
+                        {
+                            
+                            Console.WriteLine("------------------- " + p.name + " -------------------");
+                            Console.WriteLine(p);
+                            if (p.hand.Score() == 21)
+                            {
+                                Console.WriteLine(p.name + " has BlackJack!");
+                                this.players.Remove(p.UID);
+                                //numDone++;
+                                break;
+                            }
+                            if (p.hand.Score() > 21)
+                            {
+                                Console.WriteLine(p.name + " busts!");
+                                this.players.Remove(p.UID);
+                                //numDone++;
+                                break;
+                            }
+                            bool ask = AskPlayer();
+                            if (ask)
+                            {
+                                p.hand.AddTo(gamecards.Deal());
+                            }
+                            else {
+                                this.players.Remove(p.UID);
+                                break;
+                                //numDone++;
+                            }
+                     }
                 }
             }
         }
+
+        public void Dealer_Play()
+        {
+            Console.WriteLine("To be implemented...");
+        }
+
         public bool AskPlayer() //Returns true for hit, false for stay
         {
             bool result = false;

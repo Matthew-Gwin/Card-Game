@@ -9,7 +9,18 @@ namespace Card_Game
         //private List<Card> hand; //might not need this 
         
         public Hand() : base(false) { }        //call deck constructor (hand is basically the same thing as a deck) to create blank Hand
-        
+
+        public int Score()
+        {
+            int sum = 0;
+            foreach (Card c in cards)
+            {
+                if (c == null) break;
+                sum += c.value;
+            }
+            return sum;
+        }
+
 
     }
 }
