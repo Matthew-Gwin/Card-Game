@@ -4,19 +4,23 @@ using System.Text;
 
 namespace Card_Game
 {
-     class Player
+     internal class Player
     {
         private string name { get; }
-        private int UID { get; set; }
-        private bool isPlaying { get; set; }
-        private Hand hand { get; set; }
+        public int UID { get; set; }
+        public bool isPlaying { get; set; }
+        public Hand hand { get; set; }
+        public Game game { get; set; } //game that the player is part of 
         
         public Player(string playerName)
         {
-
             this.isPlaying = true;
             this.hand = new Hand();
             this.name = playerName;
+        }
+        public string toString()
+        {
+            return this.name + " Cards: " + this.hand.ToString();
         }
     }
 }

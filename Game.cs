@@ -16,16 +16,18 @@ namespace Card_Game
         public void AddPlayer(Player p)
         {
 
-            int UID = this.generateID();
+            int UID = this.GenerateID();
             if (players.ContainsKey(UID)){
                 while (players.ContainsKey(UID))
                 {
-                    UID = this.generateID();
+                    UID = this.GenerateID();
                 }
             }
-            players.Add(UID, p);
+            p.game = this; //player needs to know what game it's part of
+            p.UID = UID; //set player's UID
+            players.Add(UID, p); 
         }
-        private int generateID()
+        private int GenerateID() //just here in case someone would ever try to add two people with the same name to the game
         {
             Random rnd = new Random();
             return rnd.Next(0, 99999);

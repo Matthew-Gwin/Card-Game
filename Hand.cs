@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Card_Game
 {
-    class Hand : Deck // Hand extends Deck
+    internal class Hand : Deck // Hand extends Deck
     {
         //private List<Card> hand; //might not need this 
         

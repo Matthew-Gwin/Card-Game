@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Card_Game
 {
-    class Deck {
+    internal class Deck {
 
         public List<Card> cards { get; }
         private int size { get; set;  }
@@ -20,12 +20,16 @@ namespace Card_Game
             }
             this.size = this.cards.Count;
         }
-        public Deck() { }
+        public Deck() { this.size = 0; }
 
-        private void Shuffle()
+        public void Shuffle()
         {
+            if (this.cards.Count == 0)
+            {
+                return; //can't shuffle empty Deck
+            }
             Random rand = new Random();
-            int r = rand.Next() % size;
+            int r = rand.Next(0, 52);
             for (int i = 0; i < 10; i++)
             {
                 Card temp = this.cards[i];
@@ -33,8 +37,9 @@ namespace Card_Game
                 this.cards[r] = temp;
             }
         }
-        private Card Deal()
+        public Card Deal()
         {
+            if (cards.Count == 0) return null; 
             int last = cards.Count - 1;
             Card ret = cards[last];
             this.cards.RemoveAt(last);
@@ -76,7 +81,6 @@ namespace Card_Game
 
         public void AddTo(Card c)
         {
-
             this.cards.Add(c);
             this.size = this.cards.Count;
         }

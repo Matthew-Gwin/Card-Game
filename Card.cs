@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Card_Game
 {
-    class Card
+    internal class Card
     {
         private int value { get; set; }
         private string suit { get; set; }
