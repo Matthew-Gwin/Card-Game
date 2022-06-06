@@ -22,6 +22,16 @@ namespace Card_Game
         }
         public Deck() { this.size = 0; }
 
+        public int Score()
+        {
+            int sum = 0;
+            foreach (Card c in cards)
+            {
+                sum += c.value;
+            }
+            return sum;
+        }
+
         public void Shuffle()
         {
             if (this.cards.Count == 0)
@@ -51,7 +61,7 @@ namespace Card_Game
         //Not sure if this belongs here
         private void create(bool ace) //if ace is true, it gets set to 1
         {
-            char[] facecards = { 'A', 'J', 'Q', 'K' };
+            String[] facecards = { "A", "J", "Q", "K" }; 
             string[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
             Card c = null;
             int faceCardValue = 10; //default
@@ -60,12 +70,12 @@ namespace Card_Game
             {
                 for (int j = 2; j <= 10; j++) //card and value
                 {
-                    this.AddTo(new Card(Convert.ToChar(Convert.ToString(j)[0]), s, j));
+                    this.AddTo(new Card(Convert.ToString(j), s, j));
                 }
                 //for (int k = 0; k < facecards.Length; k++)
-                foreach (char fc in facecards)
+                foreach (String fc in facecards)
                 {
-                    if (fc == 'A')
+                    if (fc == "A")
                     {
                         if (ace) this.AddTo(new Card(fc, s, 1));
                         else this.AddTo(new Card(fc, s, 11));
@@ -85,5 +95,9 @@ namespace Card_Game
             this.size = this.cards.Count;
         }
 
+        public override string ToString()
+        {
+            return String.Join(", ", this.cards) + " Score: " + this.Score();
+        }
     }
 }

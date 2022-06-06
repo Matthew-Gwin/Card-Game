@@ -6,7 +6,7 @@ namespace Card_Game
 {
      internal class Player
     {
-        private string name { get; }
+        public string name { get; }
         public int UID { get; set; }
         public bool isPlaying { get; set; }
         public Hand hand { get; set; }
@@ -18,7 +18,7 @@ namespace Card_Game
             this.hand = new Hand();
             this.name = playerName;
         }
-        public string toString()
+        public override String ToString()
         {
             return this.name + " Cards: " + this.hand.ToString();
         }

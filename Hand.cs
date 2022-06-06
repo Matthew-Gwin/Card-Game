@@ -9,7 +9,7 @@ namespace Card_Game
         //private List<Card> hand; //might not need this 
         
         public Hand() : base(false) { }        //call deck constructor (hand is basically the same thing as a deck) to create blank Hand
-    
+        
 
     }
 }

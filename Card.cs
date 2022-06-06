@@ -6,11 +6,11 @@ namespace Card_Game
 {
     internal class Card
     {
-        private int value { get; set; }
-        private string suit { get; set; }
-        private char rank { get; set; }
+        public int value { get; set; }
+        public string suit { get; set; }
+        public String rank { get; set; }
 
-        public Card(char rank, string suit, int value )
+        public Card(String rank, string suit, int value )
         {
             this.value = value;
             this.suit = suit;
