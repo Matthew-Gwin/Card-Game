@@ -27,14 +27,14 @@ namespace Card_Game
             }*/ 
 
             //Card ace_of_spades = new Card('A', "Spades", 11);
-            Player matt = new Player("Matt");
+            /*Player matt = new Player("Matt");
             Player yasmeen = new Player("Yasmeen");
             Player feiyang = new Player("Feiyang");
             //Game setup
             Game game = new Game();
             game.AddPlayer(matt);
             game.AddPlayer(yasmeen);
-            game.AddPlayer(feiyang);   
+            game.AddPlayer(feiyang);*/   
           //Console.WriteLine(ace_of_spades);
             Console.WriteLine("Hello World!");
         }

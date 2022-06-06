@@ -7,10 +7,14 @@ namespace Card_Game
     internal class BlackJack : Game
     {
 
-        public BlackJack() : base()
+        private Deck gamecards;
+
+        public BlackJack() : base() //Extends game
         {
-            base.players.Add()
-            BlackJackPlayer Dealer = new BlackJackPlayer("Dealer");
+            Player dealer = new Player("Dealer"); //Blackjack always has a dealer
+            
+            //base.players.AddPlayer(dealer);
         } 
+
     }
 }
