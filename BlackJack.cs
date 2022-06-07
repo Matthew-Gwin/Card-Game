@@ -10,11 +10,11 @@ namespace Card_Game
         private Deck gamecards;
 
         private Player dealer;
-        private List<Player> standing;
-
+        public Dictionary<int, Player> standing;
+        
         public BlackJack() : base() //Extends game
         {
-            standing = new List<Player>();
+            standing = new Dictionary<int, Player>();
             dealer = new Player("Dealer"); //Blackjack always has a dealer
             this.AddPlayer(dealer);
             gamecards = new Deck(true);
@@ -29,8 +29,6 @@ namespace Card_Game
                 gamecards.Shuffle();
             }
 
-            //while (numDone < this.players.Count - 1)
-            //while (this.players.Count >= 1) 
             while (true) // While there's more players than the dealer
             {
                 if (this.players.Count == 1) //only dealer left
@@ -53,25 +51,19 @@ namespace Card_Game
                     {
                         continue;
                     }
+                   
                     else while (p.isPlaying)
                         {
-                            
+
                             Console.WriteLine("------------------- " + p.name + " -------------------");
                             Console.WriteLine(p);
-                            if (p.hand.Score() == 21)
+
+                            bool won_or_lost = CheckPlayer(p);
+                            if (won_or_lost)
                             {
-                                Console.WriteLine(p.name + " has BlackJack!");
-                                this.players.Remove(p.UID);
-                                //numDone++;
                                 break;
                             }
-                            if (p.hand.Score() > 21)
-                            {
-                                Console.WriteLine(p.name + " busts!");
-                                this.players.Remove(p.UID);
-                                //numDone++;
-                                break;
-                            }
+
                             bool ask = AskPlayer();
                             if (ask)
                             {
@@ -80,16 +72,19 @@ namespace Card_Game
                             else {
                                 this.players.Remove(p.UID);
                                 break;
-                                //numDone++;
                             }
                      }
                 }
+            }
+            foreach (Player p in standing.Values)
+            {
+                Console.WriteLine(p.name + " Score: " + p.hand.Score());
             }
         }
 
         public void Automatic_Play(Player p)
         {
-            Console.WriteLine("To be implemented...");
+            //Console.WriteLine("To be implemented...");
             while (p.isPlaying)
             {
                 if (p.hand.Score() <= 15)
@@ -99,15 +94,49 @@ namespace Card_Game
                 }
                 else
                 {
-                    standing.Add(p);
+                    standing.Add(p.UID, p);
+                    p.isPlaying = false;
                     Console.WriteLine(p.name + " Stands.");
                     break;
                 }
             }
         }
 
+        public bool CheckPlayer(Player p) //returns false if a player is removed from the game
+        {
+            bool result = false;
+            if (p.hand.Score() == 21)
+            {
+                Console.WriteLine(p.name + " has BlackJack!");
+                this.players.Remove(p.UID);
+                p.isPlaying = false;
+                result = true;
+            }
+            if (p.hand.Score() > 21)
+            {
+                Console.WriteLine(p.name + " busts!");
+                this.players.Remove(p.UID);
+                p.isPlaying = false;
+                result = true;
+            }
+            bool ask = AskPlayer();
+            if (ask)
+            {
+                this.PlayerHit(p);
+            }
+            else
+            {
+                this.players.Remove(p.UID);
+                p.isPlaying = false;
+                result = true;
+            }
+            return result;
+        }
+
         public void PlayerHit(Player p)
         {
+            Console.WriteLine(p.name + " Hits!");
+            Console.WriteLine(p);
             p.hand.AddTo(gamecards.Deal());
         }
 
