@@ -9,10 +9,13 @@ namespace Card_Game
 
         private Deck gamecards;
 
+        private Player dealer;
+        private List<Player> standing;
 
         public BlackJack() : base() //Extends game
         {
-            Player dealer = new Player("Dealer"); //Blackjack always has a dealer
+            standing = new List<Player>();
+            dealer = new Player("Dealer"); //Blackjack always has a dealer
             this.AddPlayer(dealer);
             gamecards = new Deck(true);
             //Console.WriteLine(gamecards);
@@ -32,7 +35,7 @@ namespace Card_Game
             {
                 if (this.players.Count == 1) //only dealer left
                 {
-                    Dealer_Play();
+                    Automatic_Play(dealer);
                     break;
                 }
                 //Console.WriteLine(numDone);
@@ -72,7 +75,7 @@ namespace Card_Game
                             bool ask = AskPlayer();
                             if (ask)
                             {
-                                p.hand.AddTo(gamecards.Deal());
+                                this.PlayerHit(p);
                             }
                             else {
                                 this.players.Remove(p.UID);
@@ -84,9 +87,28 @@ namespace Card_Game
             }
         }
 
-        public void Dealer_Play()
+        public void Automatic_Play(Player p)
         {
             Console.WriteLine("To be implemented...");
+            while (p.isPlaying)
+            {
+                if (p.hand.Score() <= 15)
+                {
+                    Console.WriteLine(p.name + " Hit!");
+                    this.PlayerHit(p);
+                }
+                else
+                {
+                    standing.Add(p);
+                    Console.WriteLine(p.name + " Stands.");
+                    break;
+                }
+            }
+        }
+
+        public void PlayerHit(Player p)
+        {
+            p.hand.AddTo(gamecards.Deal());
         }
 
         public bool AskPlayer() //Returns true for hit, false for stay
