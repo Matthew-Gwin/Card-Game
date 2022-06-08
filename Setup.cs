@@ -30,6 +30,7 @@ namespace Card_Game
             BlackJack game = new BlackJack();
             
             game.AddPlayer(matt);
+            //game.AddPlayer(new Player("Matt")); //test UID work
             game.AddPlayer(yasmeen);
             game.AddPlayer(feiyang);
 
@@ -41,8 +42,8 @@ namespace Card_Game
             Console.WriteLine(test); */
 
             game.PlayGame();
-
-            Console.WriteLine("Hello World!");
+            //game.Automatic_Play(matt);
+            //Console.WriteLine("Hello World!");
         }
     }
 }

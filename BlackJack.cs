@@ -10,11 +10,11 @@ namespace Card_Game
         private Deck gamecards;
 
         private Player dealer;
-        public Dictionary<int, Player> standing;
+        public Dictionary<int, Player> out_of_round;
         
         public BlackJack() : base() //Extends game
         {
-            standing = new Dictionary<int, Player>();
+            out_of_round = new Dictionary<int, Player>();
             dealer = new Player("Dealer"); //Blackjack always has a dealer
             this.AddPlayer(dealer);
             gamecards = new Deck(true);
@@ -22,21 +22,19 @@ namespace Card_Game
         }
 
         public void PlayGame()
-        {
-            //int numDone = 0; 
+        {          
             for (int i = 0; i < 10; i++)
             {
                 gamecards.Shuffle();
             }
 
-            while (true) // While there's more players than the dealer
+            while (true) // forever
             {
-                if (this.players.Count == 1) //only dealer left
+                if (out_of_round.Count == this.players.Count - 1) //only dealer left because we've skipped it this whole time
                 {
                     Automatic_Play(dealer);
                     break;
                 }
-                //Console.WriteLine(numDone);
                 
                 foreach (Player p in this.players.Values)
                 {
@@ -51,50 +49,57 @@ namespace Card_Game
                     {
                         continue;
                     }
-                   
-                    else while (p.isPlaying)
+                    Console.WriteLine("------------------- " + p.name + " -------------------");
+                    Console.WriteLine(p);
+
+                    while (p.isPlaying)
                         {
-
-                            Console.WriteLine("------------------- " + p.name + " -------------------");
-                            Console.WriteLine(p);
-
-                            bool won_or_lost = CheckPlayer(p);
+                            bool won_or_lost = CheckPlayerStatus(p);
                             if (won_or_lost)
                             {
+                                out_of_round.Add(p.UID, p);
                                 break;
                             }
 
-                            bool ask = AskPlayer();
+                            bool ask = AskPlayer(p);
                             if (ask)
                             {
                                 this.PlayerHit(p);
                             }
                             else {
-                                this.players.Remove(p.UID);
+                                Console.WriteLine(p.name + " stands.");
+                                p.isPlaying = false;
+                                out_of_round.Add(p.UID, p); //add player to out_of_round
                                 break;
                             }
                      }
                 }
             }
-            foreach (Player p in standing.Values)
-            {
+            Console.WriteLine("################# Game Results #################");
+            foreach (Player p in out_of_round.Values) //All players should be here when all either stand, bust, or have BlackJack.
+            {    
                 Console.WriteLine(p.name + " Score: " + p.hand.Score());
             }
         }
 
         public void Automatic_Play(Player p)
         {
+            Console.WriteLine("------------------- " + p.name + " -------------------");
             //Console.WriteLine("To be implemented...");
             while (p.isPlaying)
             {
                 if (p.hand.Score() <= 15)
                 {
-                    Console.WriteLine(p.name + " Hit!");
                     this.PlayerHit(p);
+                     if (this.CheckPlayerStatus(p))
+                    {
+                        out_of_round.Add(p.UID, p);
+                        break;
+                    }
                 }
                 else
                 {
-                    standing.Add(p.UID, p);
+                    out_of_round.Add(p.UID, p);
                     p.isPlaying = false;
                     Console.WriteLine(p.name + " Stands.");
                     break;
@@ -102,32 +107,22 @@ namespace Card_Game
             }
         }
 
-        public bool CheckPlayer(Player p) //returns false if a player is removed from the game
+        public bool CheckPlayerStatus(Player p) //returns true if a player has blackjack or busts (no longer playing in the round)
         {
+            //Console.WriteLine("CheckPlayerStatus enter");
             bool result = false;
             if (p.hand.Score() == 21)
             {
                 Console.WriteLine(p.name + " has BlackJack!");
-                this.players.Remove(p.UID);
-                p.isPlaying = false;
+                //this.players.Remove(p.UID);
+                //p.isPlaying = false;
                 result = true;
             }
             if (p.hand.Score() > 21)
             {
                 Console.WriteLine(p.name + " busts!");
-                this.players.Remove(p.UID);
-                p.isPlaying = false;
-                result = true;
-            }
-            bool ask = AskPlayer();
-            if (ask)
-            {
-                this.PlayerHit(p);
-            }
-            else
-            {
-                this.players.Remove(p.UID);
-                p.isPlaying = false;
+                //this.players.Remove(p.UID);
+                //p.isPlaying = false;
                 result = true;
             }
             return result;
@@ -135,12 +130,14 @@ namespace Card_Game
 
         public void PlayerHit(Player p)
         {
+            p.hand.AddTo(gamecards.Deal());
             Console.WriteLine(p.name + " Hits!");
             Console.WriteLine(p);
-            p.hand.AddTo(gamecards.Deal());
+            //this.CheckPlayerStatus(p);
+            
         }
 
-        public bool AskPlayer() //Returns true for hit, false for stay
+        public bool AskPlayer(Player p) //Returns true for hit, false for stay
         {
             bool result = false;
             Boolean noResponse = true;

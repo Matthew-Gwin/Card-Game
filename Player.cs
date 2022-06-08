@@ -20,7 +20,7 @@ namespace Card_Game
         }
         public override String ToString()
         {
-            return this.name + " Cards: " + this.hand.ToString();
+            return this.name + "'s Cards: " + this.hand.ToString();
         }
     }
 }
