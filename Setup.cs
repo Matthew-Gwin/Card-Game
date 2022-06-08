@@ -30,7 +30,7 @@ namespace Card_Game
             BlackJack game = new BlackJack();
             
             game.AddPlayer(matt);
-            //game.AddPlayer(new Player("Matt")); //test UID work
+            //game.AddPlayer(new Player("Matt")); //test UID work - you can add two players with the same name and they will be Unique in the game
             game.AddPlayer(yasmeen);
             game.AddPlayer(feiyang);
 
