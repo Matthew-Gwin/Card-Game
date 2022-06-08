@@ -23,7 +23,7 @@ namespace Card_Game
 
         public void PlayGame()
         {          
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 52; i++)
             {
                 gamecards.Shuffle();
             }
